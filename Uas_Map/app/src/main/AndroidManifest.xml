@@ -17,6 +17,19 @@
             android:name=".FirstActivity"
             android:exported="true" />
         <activity
+            android:name=".DatetimeActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".OrderActivity"
+            android:exported="true"
+            android:label="Order"
+            android:parentActivityName=".FirstActivity"/>
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true"
+            android:label="Profile"
+            android:parentActivityName=".FirstActivity"/>
+        <activity
             android:name=".RegisterActivity"
             android:exported="true"
             android:label="Register"
