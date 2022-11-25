@@ -35,6 +35,12 @@
             android:label="Register"
             android:parentActivityName=".MainActivity"/>
         <activity
+            android:name=".DropdownActivity"
+            tools:ignore="ExtraText"
+            android:label="Dropdown"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="Login">
