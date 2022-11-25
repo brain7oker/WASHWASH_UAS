@@ -21,7 +21,7 @@ public class OrderActivity extends AppCompatActivity {
     Button Number;
     Button Time;
     Button Order;
-    String[] items =  {"1","2","3","4","5"};
+    String[] items =  {"1","2","3","4"};
     AutoCompleteTextView autoCompleteTxt;
     ArrayAdapter<String> adapterItems;
 
