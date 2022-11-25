@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +19,9 @@ import com.google.android.material.navigation.NavigationBarView;
 public class FirstActivity extends AppCompatActivity {
 
     BottomNavigationView nav;
-    Button wash;
-    Button detail;
+    ImageButton wash;
+    ImageButton detail;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class FirstActivity extends AppCompatActivity {
         nav = findViewById(R.id.nav_bar);
         wash = findViewById(R.id.wash);
         detail = findViewById(R.id.detail);
+        wash.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+        detail.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         nav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
