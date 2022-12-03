@@ -3,65 +3,72 @@ package id.ac.umn.uas_map;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Patterns;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class RegisterActivity extends AppCompatActivity {
-    EditText Nama;
-    EditText Phone;
-    EditText Password;
-    EditText Password2;
-    EditText Email;
-    Button Register;
+
+    TextInputEditText etRegEmail;
+    TextInputEditText etRegPassword;
+    TextView tvLoginHere;
+    Button btnRegister;
+
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        Nama = findViewById(R.id.Nama);
-        Email = findViewById(R.id.Email);
-        Password = findViewById(R.id.Password);
-        Password2 = findViewById(R.id.Password2);
-        Phone = findViewById(R.id.Phone);
-        Register = findViewById(R.id.Register);
 
-        Register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkDataEntered();
-                Intent login = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(login);
-            }
+        etRegEmail = findViewById(R.id.etRegEmail);
+        etRegPassword = findViewById(R.id.etRegPass);
+        tvLoginHere = findViewById(R.id.tvLoginHere);
+        btnRegister = findViewById(R.id.btnRegister);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        btnRegister.setOnClickListener(view ->{
+            createUser();
+        });
+
+        tvLoginHere.setOnClickListener(view ->{
+            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
         });
     }
 
-    boolean isEmail(EditText text) {
-        CharSequence email = text.getText().toString();
-        return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+    private void createUser(){
+        String email = etRegEmail.getText().toString();
+        String password = etRegPassword.getText().toString();
+
+        if(TextUtils.isEmpty(email)){
+            etRegEmail.setError("Email cannot be empty");
+            etRegEmail.requestFocus();
+        }else if (TextUtils.isEmpty(password)){
+            etRegPassword.setError("Password cannot be empty");
+            etRegPassword.requestFocus();
+        }else {
+            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()){
+                        Toast.makeText(RegisterActivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                    }else{
+                        Toast.makeText(RegisterActivity.this, "Registration Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
-    boolean isEmpty(EditText text) {
-        CharSequence str = text.getText().toString();
-        return TextUtils.isEmpty(str);
-    }
-
-    void checkDataEntered() {
-        if (isEmpty(Nama)) {
-            Toast t = Toast.makeText(this, "You must enter first name to register!", Toast.LENGTH_SHORT);
-            t.show();
-        }
-
-        if (isEmpty(Phone)) {
-            Phone.setError("Phone number is required!");
-        }
-
-        if (isEmail(Email) == false) {
-            Email.setError("Enter valid email!");
-        }
-    }
 }

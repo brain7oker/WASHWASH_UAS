@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "163964464557",
+    "project_id": "uas-map-781de",
+    "storage_bucket": "uas-map-781de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163964464557:android:7ac13a1b73aff084c90524",
+        "android_client_info": {
+          "package_name": "id.ac.umn.uas_map"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "163964464557-naf900fupr3h0a2poa8clvde31m1atvf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGmVdSlQlOVVLGJKRRW_sFB-WCJ-5vvqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "163964464557-naf900fupr3h0a2poa8clvde31m1atvf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
