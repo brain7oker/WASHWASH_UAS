@@ -19,11 +19,11 @@
         <activity
             android:name=".DatetimeActivity"
             android:exported="true"/>
-<!--        <activity-->
-<!--            android:name=".OrderActivity"-->
-<!--            android:exported="true"-->
-<!--            android:label="Order"-->
-<!--            android:parentActivityName=".FirstActivity"/>-->
+        <activity
+            android:name=".OrderActivity"
+            android:exported="true"
+            android:label="Order"
+            android:parentActivityName=".FirstActivity"/>
         <activity
             android:name=".ProfileActivity"
             android:exported="true"
@@ -37,13 +37,17 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="Login">
+            android:label="Login"/>
+
+        <activity android:name=".SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
