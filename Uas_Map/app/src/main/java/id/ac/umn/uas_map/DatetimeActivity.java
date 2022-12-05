@@ -49,7 +49,7 @@ public class DatetimeActivity extends AppCompatActivity {
         });
 
         cont.setOnClickListener(v -> {
-            Intent intentkirim = new Intent(DatetimeActivity.this, FirstActivity.class);
+            Intent intentkirim = new Intent(DatetimeActivity.this, OrderActivity.class);
             Context context = getApplicationContext();
             CharSequence text = ("Date & Time Selected");
             int duration = Toast.LENGTH_SHORT;

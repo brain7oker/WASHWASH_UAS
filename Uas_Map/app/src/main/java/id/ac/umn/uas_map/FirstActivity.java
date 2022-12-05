@@ -15,12 +15,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class FirstActivity extends AppCompatActivity {
 
     BottomNavigationView nav;
     ImageButton wash;
     ImageButton detail;
+    FirebaseAuth mAuth;
 
 
     @Override
@@ -30,6 +33,7 @@ public class FirstActivity extends AppCompatActivity {
         nav = findViewById(R.id.nav_bar);
         wash = findViewById(R.id.wash);
         detail = findViewById(R.id.detail);
+        mAuth = FirebaseAuth.getInstance();
         wash.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         detail.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         nav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -67,6 +71,14 @@ public class FirstActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user == null){
+            startActivity(new Intent(FirstActivity.this, MainActivity.class));
+        }
     }
 
 }

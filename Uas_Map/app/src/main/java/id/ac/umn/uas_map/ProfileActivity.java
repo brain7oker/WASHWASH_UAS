@@ -8,23 +8,23 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class ProfileActivity extends AppCompatActivity {
     TextView nama;
     TextView email;
-    TextView phoneNum;
     Button signout;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         signout = findViewById(R.id.signOut);
-        signout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ProfileActivity.this, MainActivity.class);
-                startActivity(i);
-            }
+        mAuth = FirebaseAuth.getInstance();
+        signout.setOnClickListener(view ->{
+            mAuth.signOut();
+            startActivity(new Intent(ProfileActivity.this, MainActivity.class));
         });
     }
 

@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="Profile"
         android:textSize="30dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textAlignment="center"/>
 
     <TextView
@@ -31,17 +31,17 @@
         android:layout_height="wrap_content"
         android:text="Nama :"
         android:layout_marginLeft="40px"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:layout_marginTop="40px"/>
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aver"
         android:layout_marginLeft="40px"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20dp"
+        android:hint="Nama"
         android:layout_marginTop="40px"/>
 
     <TextView
@@ -49,35 +49,17 @@
         android:layout_height="wrap_content"
         android:text="Email : "
         android:layout_marginLeft="40px"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:layout_marginTop="40px"/>
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aver@gmail.com"
         android:layout_marginLeft="40px"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20dp"
-        android:layout_marginTop="40px"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Phone Number : "
-        android:layout_marginLeft="40px"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:layout_marginTop="40px"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="081123456789"
-        android:layout_marginLeft="40px"
-        android:textColor="@color/black"
-        android:textSize="20dp"
+        android:hint="Email"
         android:layout_marginTop="40px"/>
 
     <Button
