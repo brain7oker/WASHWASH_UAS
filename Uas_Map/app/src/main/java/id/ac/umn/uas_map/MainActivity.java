@@ -17,6 +17,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import id.ac.umn.uas_map.Admin.AdminActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     TextInputEditText etLoginEmail;
@@ -56,14 +58,18 @@ public class MainActivity extends AppCompatActivity {
         } else if (TextUtils.isEmpty(password)) {
             etLoginPassword.setError("Password cannot be empty");
             etLoginPassword.requestFocus();
-        } else {
+        }  else {
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
+                    if (task.isSuccessful() && email.equals("admin@gmail.com") && password.equals("admin123")) {
+                        Toast.makeText(MainActivity.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, AdminActivity.class));
+                    } else if (task.isSuccessful()) {
                         Toast.makeText(MainActivity.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(MainActivity.this, FirstActivity.class));
-                    } else {
+                    }
+                    else {
                         Toast.makeText(MainActivity.this, "Log in Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }

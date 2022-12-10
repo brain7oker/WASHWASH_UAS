@@ -17,6 +17,9 @@
             android:name=".FirstActivity"
             android:exported="true" />
         <activity
+            android:name=".Admin.AdminActivity"
+            android:exported="true" />
+        <activity
             android:name=".DatetimeActivity"
             android:exported="true"/>
         <activity
@@ -29,6 +32,11 @@
             android:exported="true"
             android:label="Profile"
             android:parentActivityName=".FirstActivity"/>
+        <activity
+            android:name=".Admin.ProfileAdminActivity"
+            android:exported="true"
+            android:label="Profile"
+            android:parentActivityName=".Admin.AdminActivity"/>
         <activity
             android:name=".RegisterActivity"
             android:exported="true"
