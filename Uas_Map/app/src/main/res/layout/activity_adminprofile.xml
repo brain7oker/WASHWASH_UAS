@@ -38,10 +38,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Admin"
         android:layout_marginLeft="40px"
         android:textColor="@color/white"
         android:textSize="20dp"
+        android:id="@+id/name"
         android:layout_marginTop="40px"/>
 
     <TextView
@@ -56,10 +56,28 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Admin@gmail.com"
         android:layout_marginLeft="40px"
         android:textColor="@color/white"
         android:textSize="20dp"
+        android:id="@+id/email"
+        android:layout_marginTop="40px"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Age : "
+        android:layout_marginLeft="40px"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_marginTop="40px"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40px"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:id="@+id/age"
         android:layout_marginTop="40px"/>
 
 
@@ -69,7 +87,7 @@
         android:text="Sign Out"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
-        android:id="@+id/signOut"/>
+        android:id="@+id/signout"/>
 
 
 </LinearLayout>

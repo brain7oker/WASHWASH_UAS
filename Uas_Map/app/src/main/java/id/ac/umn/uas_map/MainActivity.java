@@ -20,6 +20,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import id.ac.umn.uas_map.Admin.AdminActivity;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView register;
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
 
-        mAuth =FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void userLogin() {
 
-        String email =Editemail.getText().toString().trim();
+        String email = Editemail.getText().toString().trim();
         String password = Editpassword.getText().toString().trim();
 
         if (email.isEmpty()){
@@ -98,11 +100,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if (task.isSuccessful()){
+                if (task.isSuccessful() && email.equals("admin@gmail.com") && password.equals("admin123")) {
+                    startActivity(new Intent(MainActivity.this, AdminActivity.class));
+                    Toast.makeText(MainActivity.this, "Admin logged in successfully", Toast.LENGTH_SHORT).show();
+                } else if (task.isSuccessful()){
+                    startActivity(new Intent(MainActivity.this,FirstActivity.class));
+                    Toast.makeText(MainActivity.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
 
-                    startActivity(new Intent(MainActivity.this,ProfileActivity.class));
-
-                }else{
+                 }else{
                     Toast.makeText(MainActivity.this, "Failed to log in", Toast.LENGTH_LONG).show();
                 }
             }
