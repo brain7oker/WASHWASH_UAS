@@ -1,79 +1,111 @@
 package id.ac.umn.uas_map;
 
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Patterns;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import id.ac.umn.uas_map.Admin.AdminActivity;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-public class MainActivity extends AppCompatActivity {
+    private TextView register;
+    private EditText Editemail,Editpassword;
+    private Button signin;
 
-    TextInputEditText etLoginEmail;
-    TextInputEditText etLoginPassword;
-    TextView tvRegisterHere;
-    Button btnLogin;
-
-    FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etLoginEmail = findViewById(R.id.etLoginEmail);
-        etLoginPassword = findViewById(R.id.etLoginPass);
-        tvRegisterHere = findViewById(R.id.tvRegisterHere);
-        btnLogin = findViewById(R.id.btnLogin);
+        register = (TextView) findViewById(R.id.register);
+        register.setOnClickListener(this);
 
-        mAuth = FirebaseAuth.getInstance();
+        signin = (Button) findViewById(R.id.signin);
+        signin.setOnClickListener(this);
 
-        btnLogin.setOnClickListener(view -> {
-            loginUser();
-        });
-        tvRegisterHere.setOnClickListener(view -> {
-            startActivity(new Intent(MainActivity.this, RegisterActivity.class));
-        });
+        Editemail = (EditText) findViewById(R.id.email);
+        Editpassword = (EditText) findViewById(R.id.password);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
+
+        mAuth =FirebaseAuth.getInstance();
+
     }
 
-    private void loginUser() {
-        String email = etLoginEmail.getText().toString();
-        String password = etLoginPassword.getText().toString();
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.register:
+                startActivity(new Intent(this, RegisterActivity.class));
+                break;
+            case R.id.signin:
+                userLogin();
+                break;
 
-        if (TextUtils.isEmpty(email)) {
-            etLoginEmail.setError("Email cannot be empty");
-            etLoginEmail.requestFocus();
-        } else if (TextUtils.isEmpty(password)) {
-            etLoginPassword.setError("Password cannot be empty");
-            etLoginPassword.requestFocus();
-        }  else {
-            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful() && email.equals("admin@gmail.com") && password.equals("admin123")) {
-                        Toast.makeText(MainActivity.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this, AdminActivity.class));
-                    } else if (task.isSuccessful()) {
-                        Toast.makeText(MainActivity.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this, FirstActivity.class));
-                    }
-                    else {
-                        Toast.makeText(MainActivity.this, "Log in Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+
         }
+
+    }
+
+    private void userLogin() {
+
+        String email =Editemail.getText().toString().trim();
+        String password = Editpassword.getText().toString().trim();
+
+        if (email.isEmpty()){
+            Editemail.setError("Email is required");
+            Editemail.requestFocus();
+            return;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            Editemail.setError("Please provide a valid email");
+            Editemail.requestFocus();
+            return;
+        }
+
+        if (password.isEmpty()){
+            Editpassword.setError("Password is required");
+            Editpassword.requestFocus();
+            return;
+        }
+
+        if (password.length() < 6){
+            Editpassword.setError("Password should be at least 6 charactes");
+            Editpassword.requestFocus();
+            return;
+        }
+
+        progressBar.setVisibility(View.VISIBLE);
+
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if (task.isSuccessful()){
+
+                    startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+
+                }else{
+                    Toast.makeText(MainActivity.this, "Failed to log in", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 }
