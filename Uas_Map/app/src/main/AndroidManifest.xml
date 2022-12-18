@@ -17,6 +17,9 @@
             android:name=".FirstActivity"
             android:exported="true" />
         <activity
+            android:name=".RVActivity"
+            android:exported="true" />
+        <activity
             android:name=".Admin.AdminActivity"
             android:exported="true" />
         <activity

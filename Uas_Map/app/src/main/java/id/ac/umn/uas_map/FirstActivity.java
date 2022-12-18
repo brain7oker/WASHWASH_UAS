@@ -46,6 +46,8 @@ public class FirstActivity extends AppCompatActivity {
 
                     case R.id.history:
                         Toast.makeText(FirstActivity.this, "History Selected", Toast.LENGTH_SHORT).show();
+                        Intent hist = new Intent(FirstActivity.this, RVActivity.class);
+                        startActivity(hist);
                         break;
 
                     case R.id.user:
