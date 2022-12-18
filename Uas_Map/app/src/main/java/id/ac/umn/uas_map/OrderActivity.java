@@ -14,9 +14,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class OrderActivity extends AppCompatActivity {
     EditText Nama;
     EditText Phone;
+    EditText Loc;
+    EditText Car;
     Button Location;
     Button Number;
     Button Time;
@@ -29,17 +33,30 @@ public class OrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-        Nama = findViewById(R.id.Nama);
-        Phone = findViewById(R.id.Phone);
-        Location = findViewById(R.id.Location);
-        Time = findViewById(R.id.Time);
+
+        EditText edit_name = findViewById(R.id.Nama);
+        EditText edit_phone = findViewById(R.id.Phone);
+        EditText edit_loc = findViewById(R.id.Location);
+        EditText edit_car = findViewById(R.id.Number);
+
+
+//        EditText edit_time = findViewById(R.id.edit_name);
+        DAOEmployee dao = new DAOEmployee();
+//        Nama = findViewById(R.id.Nama);
+//        Phone = findViewById(R.id.Phone);
+//        Location = findViewById(R.id.Location);
+
+//        Car = findViewById(R.id.Number);
+//        Time = findViewById(R.id.Time);
         Order = findViewById(R.id.Order);
+
 
         autoCompleteTxt = findViewById(R.id.auto_complete_txt);
 
         adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
         autoCompleteTxt.setAdapter(adapterItems);
 
+//        Toast.makeText(OrderActivity.this, "beta1", Toast.LENGTH_SHORT).show();
         autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -49,9 +66,20 @@ public class OrderActivity extends AppCompatActivity {
         });
 
         Order.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                checkDataEntered();
+                Toast.makeText(OrderActivity.this, "beta0", Toast.LENGTH_SHORT).show();
+//                checkDataEntered();
+                Employee emp = new Employee(edit_name.getText().toString(), edit_phone.getText().toString(),edit_car.getText().toString(), edit_loc.getText().toString());
+                dao.add(emp).addOnSuccessListener(suc ->
+                {
+                    Toast.makeText(OrderActivity.this, "Inserted", Toast.LENGTH_SHORT).show();
+
+                }).addOnFailureListener(er ->
+                {
+                    Toast.makeText(OrderActivity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                });
                 Intent login = new Intent(OrderActivity.this, OrderActivity.class);
                 startActivity(login);
             }

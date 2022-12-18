@@ -2,11 +2,15 @@ package id.ac.umn.uas_map;
 
 public class Employee {
     private String name;
-    private String position;
+    private String phone;
+    private String car;
+    private String loc;
     public Employee(){}
-    public Employee(String name, String position) {
+    public Employee(String name, String phone, String car, String loc) {
         this.name = name;
-        this.position = position;
+        this.phone = phone;
+        this.car = car;
+        this.loc = loc;
     }
 
     public String getName() {
@@ -17,11 +21,27 @@ public class Employee {
         this.name = name;
     }
 
-    public String getPosition() {
-        return position;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getCar() {
+        return car;
+    }
+
+    public void setCar(String car) {
+        this.car = car;
+    }
+
+    public String getLoc() {
+        return loc;
+    }
+
+    public void setLoc(String loc) {
+        this.loc = loc;
     }
 }

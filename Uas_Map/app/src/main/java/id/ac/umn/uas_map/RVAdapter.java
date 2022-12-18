@@ -32,7 +32,9 @@ public class RVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         EmployeeVH vh = (EmployeeVH) holder;
         id.ac.umn.uas_map.Employee emp = list.get(position);
         vh.txt_name.setText(emp.getName());
-        vh.txt_pos.setText(emp.getPosition());
+        vh.txt_phone.setText(emp.getPhone());
+        vh.txt_car.setText(emp.getCar());
+        vh.txt_loc.setText(emp.getLoc());
     }
 
     @Override

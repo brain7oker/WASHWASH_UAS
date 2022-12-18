@@ -29,13 +29,30 @@
                 android:textSize="20sp"></TextView>
 
             <TextView
-                android:id="@+id/txt_pos"
+                android:id="@+id/txt_car"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="Text"
-                android:textSize="20sp"></TextView>
+                android:textSize="15sp"></TextView>
+
+            <TextView
+                android:id="@+id/txt_loc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Text"
+                android:textSize="15sp"></TextView>
+
+            <TextView
+                android:id="@+id/txt_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Text"
+                android:textSize="15sp"></TextView>
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
