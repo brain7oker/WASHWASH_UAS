@@ -85,19 +85,11 @@ public class OrderActivity extends AppCompatActivity {
                 {
                     Toast.makeText(OrderActivity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
                 });
-                Intent login = new Intent(OrderActivity.this, OrderActivity.class);
-                startActivity(login);
+                Intent order = new Intent(OrderActivity.this, SuccessActivity.class);
+                startActivity(order);
             }
         });
 
-        Button Time = findViewById(R.id.Time);
-        Time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Time = new Intent(OrderActivity.this, DatetimeActivity.class);
-                startActivity(Time);
-            }
-        });
 
         btnpicture = findViewById(R.id.btncamera_id);
         imageView = findViewById(R.id.imageView1);

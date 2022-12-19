@@ -8,7 +8,7 @@ public class Employee {
     private String image;
 
     public Employee(){}
-    public Employee(String name, String phone, String car, String loc) {
+    public Employee(String name, String phone, String car, String loc, String image) {
         this.name = name;
         this.phone = phone;
         this.car = car;
