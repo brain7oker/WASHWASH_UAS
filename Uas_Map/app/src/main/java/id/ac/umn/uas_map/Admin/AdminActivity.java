@@ -15,9 +15,11 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import id.ac.umn.uas_map.FirstActivity;
 import id.ac.umn.uas_map.MainActivity;
 import id.ac.umn.uas_map.OrderActivity;
 import id.ac.umn.uas_map.R;
+import id.ac.umn.uas_map.RVActivity;
 
 public class AdminActivity extends AppCompatActivity {
 
@@ -47,6 +49,8 @@ public class AdminActivity extends AppCompatActivity {
 
                     case R.id.history:
                         Toast.makeText(AdminActivity.this, "History Selected", Toast.LENGTH_SHORT).show();
+                        Intent hist = new Intent(AdminActivity.this, RVActivity.class);
+                        startActivity(hist);
                         break;
 
                     case R.id.user:
