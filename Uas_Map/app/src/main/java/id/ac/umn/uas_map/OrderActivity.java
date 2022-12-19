@@ -44,7 +44,7 @@ public class OrderActivity extends AppCompatActivity {
         EditText edit_phone = findViewById(R.id.Phone);
         EditText edit_loc = findViewById(R.id.Location);
         EditText edit_car = findViewById(R.id.Number);
-
+        EditText edit_image = findViewById(R.id.Time);
 
 //        EditText edit_time = findViewById(R.id.edit_name);
         DAOEmployee dao = new DAOEmployee();
@@ -75,9 +75,8 @@ public class OrderActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Toast.makeText(OrderActivity.this, "beta0", Toast.LENGTH_SHORT).show();
 //                checkDataEntered();
-                Employee emp = new Employee(edit_name.getText().toString(), edit_phone.getText().toString(),edit_car.getText().toString(), edit_loc.getText().toString());
+                Employee emp = new Employee(edit_name.getText().toString(), edit_phone.getText().toString(),edit_car.getText().toString(), edit_loc.getText().toString(), edit_image.getText().toString());
                 dao.add(emp).addOnSuccessListener(suc ->
                 {
                     Toast.makeText(OrderActivity.this, "Inserted", Toast.LENGTH_SHORT).show();

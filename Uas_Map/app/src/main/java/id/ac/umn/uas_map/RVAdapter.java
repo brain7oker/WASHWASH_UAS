@@ -35,6 +35,7 @@ public class RVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         vh.txt_phone.setText(emp.getPhone());
         vh.txt_car.setText(emp.getCar());
         vh.txt_loc.setText(emp.getLoc());
+        vh.txt_image.setText(emp.getImage());
     }
 
     @Override

@@ -5,12 +5,15 @@ public class Employee {
     private String phone;
     private String car;
     private String loc;
+    private String image;
+
     public Employee(){}
     public Employee(String name, String phone, String car, String loc) {
         this.name = name;
         this.phone = phone;
         this.car = car;
         this.loc = loc;
+        this.image = image;
     }
 
     public String getName() {
@@ -43,5 +46,13 @@ public class Employee {
 
     public void setLoc(String loc) {
         this.loc = loc;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
