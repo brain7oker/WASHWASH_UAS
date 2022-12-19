@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bg">
+    android:background="@color/background">
 
     <EditText
         android:id="@+id/Nama"
@@ -111,7 +111,7 @@
     <Button
         android:id="@+id/btncamera_id"
         android:layout_width="249dp"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:text="Add Picture of Your Car"
         app:layout_constraintEnd_toEndOf="parent"
