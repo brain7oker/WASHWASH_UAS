@@ -123,6 +123,19 @@ public class OrderActivity extends AppCompatActivity {
             Phone.setError("Phone number is required!");
         }
 
+        if (isEmpty(Loc)) {
+            Toast t = Toast.makeText(this, "Location is required!", Toast.LENGTH_SHORT);
+            t.show();
+        }
+        if (isEmpty(Car)) {
+            Toast t = Toast.makeText(this, "Number is required!", Toast.LENGTH_SHORT);
+            t.show();
+        }
+        if (isEmpty(Time)) {
+            Toast t = Toast.makeText(this, "Time is required!", Toast.LENGTH_SHORT);
+            t.show();
+        }
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

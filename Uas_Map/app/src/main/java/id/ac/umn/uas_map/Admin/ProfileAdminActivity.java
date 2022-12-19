@@ -45,19 +45,19 @@ public class ProfileAdminActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        Toast.makeText(ProfileActivity.this, "Home Selected", Toast.LENGTH_SHORT).show();
-                        Intent home = new Intent(ProfileActivity.this, FirstActivity.class);
+                        Toast.makeText(ProfileAdminActivity.this, "Home Selected", Toast.LENGTH_SHORT).show();
+                        Intent home = new Intent(ProfileAdminActivity.this, FirstActivity.class);
                         startActivity(home);
                         break;
 
                     case R.id.history:
-                        Toast.makeText(ProfileActivity.this, "History Selected", Toast.LENGTH_SHORT).show();
-                        Intent hist = new Intent(ProfileActivity.this, RVActivity.class);
+                        Toast.makeText(ProfileAdminActivity.this, "History Selected", Toast.LENGTH_SHORT).show();
+                        Intent hist = new Intent(ProfileAdminActivity.this, RVActivity.class);
                         startActivity(hist);
                         break;
 
                     case R.id.user:
-                        Toast.makeText(ProfileActivity.this, "Profile Selected Selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProfileAdminActivity.this, "Profile Selected Selected", Toast.LENGTH_SHORT).show();
                 }
                 return false;
             }
