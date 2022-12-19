@@ -102,7 +102,7 @@ public class RVActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 isLoading =false;
                 swipeRefreshLayout.setRefreshing(false);
-                Toast.makeText(RVActivity.this, "beta3", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(RVActivity.this, "beta3", Toast.LENGTH_SHORT).show();
 //                Toast.makeText(RVActivity.this, "beta2", Toast.LENGTH_SHORT).show();
             }
 
