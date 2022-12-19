@@ -25,9 +25,9 @@ public class OrderActivity extends AppCompatActivity {
     EditText Phone;
     EditText Loc;
     EditText Car;
+    EditText Time;
     Button Location;
     Button Number;
-    Button Time;
     Button Order;
     String[] items =  {"1","2","3","4"};
     AutoCompleteTextView autoCompleteTxt;

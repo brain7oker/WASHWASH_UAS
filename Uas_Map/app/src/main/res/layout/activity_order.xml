@@ -111,7 +111,7 @@
     <Button
         android:id="@+id/btncamera_id"
         android:layout_width="249dp"
-        android:layout_height="49dp"
+        android:layout_height="80dp"
         android:layout_centerHorizontal="true"
         android:text="Add Picture of Your Car"
         app:layout_constraintEnd_toEndOf="parent"

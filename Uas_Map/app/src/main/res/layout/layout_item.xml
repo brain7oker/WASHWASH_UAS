@@ -13,7 +13,7 @@
             android:layout_height="96dp"
             android:src="@drawable/logo_washwash"
             android:padding="5dp"
-            android:id="@+id/txt_image">
+            android:id="@+id/image">
         </ImageView>
 
         <LinearLayout
@@ -27,7 +27,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="Text"
-                android:textSize="20sp"></TextView>
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txt_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Text"
+                android:textSize="0sp" />
 
 <!--            <TextView-->
 <!--                android:id="@+id/txt_image"-->

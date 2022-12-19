@@ -60,7 +60,7 @@ public class RVActivity extends AppCompatActivity {
         dao.get(key).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Toast.makeText(RVActivity.this, "beta2", Toast.LENGTH_SHORT).show();
+
                 ArrayList<id.ac.umn.uas_map.Employee> emps = new ArrayList<>();
                 for(DataSnapshot data : snapshot.getChildren()){
                     id.ac.umn.uas_map.Employee emp = data.getValue(id.ac.umn.uas_map.Employee.class);
@@ -71,6 +71,7 @@ public class RVActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 isLoading =false;
                 swipeRefreshLayout.setRefreshing(false);
+                Toast.makeText(RVActivity.this, "beta3", Toast.LENGTH_SHORT).show();
 //                Toast.makeText(RVActivity.this, "beta2", Toast.LENGTH_SHORT).show();
             }
 
