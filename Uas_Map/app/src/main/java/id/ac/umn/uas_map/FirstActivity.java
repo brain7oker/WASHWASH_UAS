@@ -25,7 +25,6 @@ public class FirstActivity extends AppCompatActivity {
     ImageButton detail;
     FirebaseAuth mAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

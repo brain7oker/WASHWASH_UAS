@@ -16,5 +16,18 @@
             android:layout_height="match_parent"
             android:id="@+id/rv">
         </androidx.recyclerview.widget.RecyclerView>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/nav_bg"
+            app:itemIconSize="30sp"
+            app:itemIconTint="@drawable/item_active"
+            app:itemTextColor="@drawable/item_active"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/menu_item"
+            tools:layout_editor_absoluteX="0dp" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 </LinearLayout>
