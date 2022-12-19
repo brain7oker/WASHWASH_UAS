@@ -18,7 +18,9 @@
             android:exported="true" />
         <activity
             android:name=".RVActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="History"
+            android:parentActivityName=".FirstActivity"/>
         <activity
             android:name=".Admin.AdminActivity"
             android:exported="true" />
