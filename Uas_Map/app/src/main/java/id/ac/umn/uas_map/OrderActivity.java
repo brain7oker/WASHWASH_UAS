@@ -75,7 +75,7 @@ public class OrderActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-//                checkDataEntered();
+                checkDataEntered();
                 Employee emp = new Employee(edit_name.getText().toString(), edit_phone.getText().toString(),edit_car.getText().toString(), edit_loc.getText().toString(), edit_image.getText().toString());
                 dao.add(emp).addOnSuccessListener(suc ->
                 {
